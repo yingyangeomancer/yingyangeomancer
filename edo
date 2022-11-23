@@ -1,0 +1,9 @@
+import telebot
+bot = telebot.TeleBot('5961708240:AAFR6_-1kfYIteBCZeIOVdSfLnzlexeUub4')
+@bot.message_handler(commands=["start"])
+def start(m, res=False):
+bot.send_message(m.chat.id, 'Здравствуй, смертный.')
+@bot.message_handler(content_types=["text"])
+def handle_text(message):
+ bot.send_message(message.chat.id, 'Что бы ты не сказал, я буду говорить о том, что мой смысл жизни заключается в служении Богу.' + message.text)
+bot.polling(none_stop=True, interval=0)
